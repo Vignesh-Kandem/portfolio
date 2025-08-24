@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background layers */
+    --background: 0 0% 6%;          /* almost black charcoal */
+    --card: 0 0% 12%;              /* lifted above background */
+    --secondary: 0 0% 18%;         /* darker than card but lighter than bg */
+
+    /* Text */
+    --foreground: 0 0% 96%;        /* brighter for visibility */
+    --card-foreground: 0 0% 98%;
+    --secondary-foreground: 0 0% 88%;
+    --muted-foreground: 0 0% 70%;  /* softer but not too faint */
+
+    /* Accents & Borders */
+    --primary: 32 95% 64%;         /* soft gold */
+    --primary-foreground: 0 0% 6%;
+    --accent: 25 95% 53%;
+    --accent-foreground: 0 0% 6%;
+    --border: 0 0% 26%;            /* stronger contrast */
+    --input: 0 0% 14%;
+    --ring: 32 95% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+  }
+}
