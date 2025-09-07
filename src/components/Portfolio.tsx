@@ -9,7 +9,8 @@ const Portfolio = () => {
       description:
         "A comprehensive full-stack web application for grocery store management featuring product management, billing system, and inventory tracking. Built with modern web technologies for optimal performance.",
       icon: ShoppingCart,
-      techStack: ["Django", "Bootstrap", "DB-Browser", "Python"],
+      techStack: ["HTML5", "CSS3", "Django", "Bootstrap", "DB-Browser", "Python"],
+      color: "from-blue-500 to-cyan-500",
       features: [
         "Product Management",
         "Billing System",
@@ -200,7 +201,7 @@ const Portfolio = () => {
                           {project.techStack.map((tech, techIndex) => (
                             <span
                               key={techIndex}
-                              className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium"
+                              className="px-2 py-1 border border-border rounded-md text-xs font-medium text-muted-foreground"
                             >
                               {tech}
                             </span>
@@ -255,7 +256,7 @@ const Portfolio = () => {
                       {project.techStack.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium"
+                          className="px-2 py-1 border border-border rounded-md text-xs font-medium text-muted-foreground"
                         >
                           {tech}
                         </span>
@@ -294,7 +295,7 @@ const Portfolio = () => {
                       {project.techStack.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-2 py-1 bg-secondary text-secondary-foreground rounded text-xs font-medium"
+                          className="px-2 py-1 border border-border rounded-md text-xs font-medium text-muted-foreground"
                         >
                           {tech}
                         </span>
@@ -310,7 +311,7 @@ const Portfolio = () => {
           <div className="mt-20 text-center">
             <div className="bg-gradient-secondary border border-border/50 rounded-2xl p-8">
               <h3 className="text-2xl font-semibold text-foreground mb-4">
-                Explore More on GitHub
+                Explore My Projects on GitHub
               </h3>
               <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
                 Visit my GitHub profile to see more projects, contributions, and
