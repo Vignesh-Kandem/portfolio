@@ -4,40 +4,58 @@
 
 @layer base {
   :root {
-    /* Background layers */
-    --background: 0 0% 6%;          /* almost black charcoal */
-    --card: 0 0% 12%;              /* lifted above background */
-    --secondary: 0 0% 18%;         /* darker than card but lighter than bg */
+    --background: 217 52% 6%;          /* deep navy #0a192f */
+    --foreground: 0 0% 95%;            /* light text */
 
-    /* Text */
-    --foreground: 0 0% 96%;        /* brighter for visibility */
-    --card-foreground: 0 0% 98%;
-    --secondary-foreground: 0 0% 88%;
-    --muted-foreground: 0 0% 70%;  /* softer but not too faint */
+    --card: 217 52% 10%;
+    --card-foreground: 0 0% 96%;
 
-    /* Accents & Borders */
-    --primary: 32 95% 64%;         /* soft gold */
+    --primary: 197 100% 47%;           /* cyan blue #00adef */
     --primary-foreground: 0 0% 6%;
-    --accent: 25 95% 53%;
+
+    --secondary: 217 52% 8%;          /* darker secondary */
+    --secondary-foreground: 0 0% 90%;
+
+    --muted: 217 52% 16%;              /* darker muted */
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 197 100% 47%;
     --accent-foreground: 0 0% 6%;
-    --border: 0 0% 26%;            /* stronger contrast */
-    --input: 0 0% 14%;
-    --ring: 32 95% 64%;
+
+    --border: 217 52% 18%;             /* slightly darker border */
+    --input: 217 52% 12%;
+    --ring: 197 100% 47%;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
 }
 
 @layer utilities {
   .bg-gradient-primary {
-    background-image: linear-gradient(to right, hsl(var(--primary)), hsl(var(--accent)));
+    @apply bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500;
+  }
+  .bg-gradient-secondary {
+    @apply bg-gradient-to-b from-background via-secondary to-background;
+  }
+  .text-gradient-primary {
+    @apply bg-gradient-to-r from-cyan-400 to-sky-500 bg-clip-text text-transparent;
+  }
+  .hover-glow { @apply transition-shadow duration-300 hover:shadow-[0_0_15px_#00adef]; }
+  .shadow-glow { @apply shadow-[0_0_15px_#00adef]; }
+}
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-md font-semibold text-sm transition-colors duration-200;
+    background-color: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+  }
+  .btn:hover { @apply bg-sky-600; }
+  .card { @apply bg-card text-card-foreground p-6 rounded-lg shadow-md; }
+  .input {
+    @apply bg-input text-foreground border border-border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring;
   }
 }
