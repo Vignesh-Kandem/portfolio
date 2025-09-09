@@ -14,7 +14,7 @@ const Hero = () => {
   // Function to download resume
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Resume.docx"; // Put Resume.docx inside public/
+    link.href = "/Resume.docx"; // Place Resume.docx inside public/
     link.download = "Resume.docx";
     document.body.appendChild(link);
     link.click();
@@ -37,7 +37,7 @@ const Hero = () => {
               <img
                 src={profileImage}
                 alt="Vignesh Kandem"
-                className="w-72 h-72 rounded-full mx-auto object-cover border-4 border-muted shadow-md"
+                className="w-72 h-72 rounded-full mx-auto object-cover border-4 border-white shadow-md"
               />
             </div>
           </div>
