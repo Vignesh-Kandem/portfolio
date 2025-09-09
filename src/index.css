@@ -4,47 +4,61 @@
 
 @layer base {
   :root {
-    --background: 217 52% 6%;          /* deep navy #0a192f */
-    --foreground: 0 0% 95%;            /* light text */
+    --background: 0 0% 6%;            /* #0f0f0f - deep charcoal */
+    --foreground: 0 0% 95%;           /* light gray text */
 
-    --card: 217 52% 10%;
+    --card: 0 0% 10%;                 /* #1a1a1a */
     --card-foreground: 0 0% 96%;
 
-    --primary: 197 100% 47%;           /* cyan blue #00adef */
-    --primary-foreground: 0 0% 6%;
+    --primary: 168 100% 50%;          /* #00ffcc - neon teal */
+    --primary-foreground: 0 0% 6%;    /* dark text on teal */
 
-    --secondary: 217 52% 8%;          /* darker secondary */
+    --secondary: 0 0% 15%;            /* #262626 */
     --secondary-foreground: 0 0% 90%;
 
-    --muted: 217 52% 16%;              /* darker muted */
+    --muted: 0 0% 20%;                /* #333333 */
     --muted-foreground: 0 0% 65%;
 
-    --accent: 197 100% 47%;
+    --accent: 168 100% 50%;           /* #00ffcc teal */
     --accent-foreground: 0 0% 6%;
 
-    --border: 217 52% 18%;             /* slightly darker border */
-    --input: 217 52% 12%;
-    --ring: 197 100% 47%;
+    --border: 0 0% 20%;               /* #333333 */
+    --input: 0 0% 15%;                /* #262626 */
+    --ring: 168 100% 50%;             /* teal glow */
   }
 }
 
 @layer base {
-  * { @apply border-border; }
-  body { @apply bg-background text-foreground; }
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
 }
 
+/* === Custom Gradient Utilities === */
 @layer utilities {
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-cyan-400 via-sky-500 to-blue-500;
+    @apply bg-gradient-to-r from-[#00ffcc] via-[#00e6b8] to-[#00ffcc];
   }
+
   .bg-gradient-secondary {
     @apply bg-gradient-to-b from-background via-secondary to-background;
   }
+
   .text-gradient-primary {
-    @apply bg-gradient-to-r from-cyan-400 to-sky-500 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-[#00ffcc] to-[#00e6b8] bg-clip-text text-transparent;
   }
-  .hover-glow { @apply transition-shadow duration-300 hover:shadow-[0_0_15px_#00adef]; }
-  .shadow-glow { @apply shadow-[0_0_15px_#00adef]; }
+
+  .hover-glow {
+    @apply transition-shadow duration-300 hover:shadow-[0_0_15px_#00ffcc];
+  }
+
+  .shadow-glow {
+    @apply shadow-[0_0_15px_#00ffcc];
+  }
 }
 
 @layer components {
@@ -53,8 +67,15 @@
     background-color: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
   }
-  .btn:hover { @apply bg-sky-600; }
-  .card { @apply bg-card text-card-foreground p-6 rounded-lg shadow-md; }
+
+  .btn:hover {
+    @apply bg-teal-600;
+  }
+
+  .card {
+    @apply bg-card text-card-foreground p-6 rounded-lg shadow-md;
+  }
+
   .input {
     @apply bg-input text-foreground border border-border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-ring;
   }

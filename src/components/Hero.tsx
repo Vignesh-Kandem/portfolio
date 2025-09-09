@@ -1,4 +1,4 @@
-import { ArrowRight, Download } from "lucide-react"; 
+import { ArrowRight, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import profileImage from "@/assets/profile-image.jpg";
 import { Typewriter } from "react-simple-typewriter";
@@ -11,9 +11,10 @@ const Hero = () => {
     }
   };
 
+  // Function to download resume
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Resume.docx";
+    link.href = "/Resume.docx"; // Put Resume.docx inside public/
     link.download = "Resume.docx";
     document.body.appendChild(link);
     link.click();
@@ -25,24 +26,29 @@ const Hero = () => {
       id="home"
       className="min-h-screen flex items-center justify-center bg-gradient-hero relative overflow-hidden"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,173,239,0.1),transparent_50%)]" />
+      {/* Background decoration */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,204,0.08),transparent_50%)]" />
 
       <div className="container mx-auto px-6 py-20">
         <div className="max-w-4xl mx-auto text-center">
+          {/* Profile Image */}
           <div className="mb-8 animate-fade-in">
             <div className="relative inline-block">
               <img
-              src={profileImage}
-              alt="Vignesh Kandem"
-              className="w-72 h-72 rounded-full mx-auto object-cover border-4 border-white shadow-md"
+                src={profileImage}
+                alt="Vignesh Kandem"
+                className="w-72 h-72 rounded-full mx-auto object-cover border-4 border-muted shadow-md"
               />
             </div>
           </div>
 
+          {/* Name and Tagline */}
           <div className="mb-6 animate-fade-in">
             <h1
               className="text-5xl md:text-6xl font-bold mb-4 text-gradient-primary leading-[1.2] pb-2"
-              style={{ textShadow: "0 2px 8px rgba(0,173,239,0.4)" }}
+              style={{
+                textShadow: "0 2px 8px rgba(0,255,204,0.4)",
+              }}
             >
               Vignesh Kandem
             </h1>
@@ -50,9 +56,9 @@ const Hero = () => {
               <Typewriter
                 words={[
                   "Enthusiastic in Full Stack Development",
-                  "Intensely curious in Artificial Intelligence"
+                  "Intensely curious in Artificial Intelligence",
                 ]}
-                loop
+                loop={true}
                 cursor
                 cursorStyle="|"
                 typeSpeed={70}
@@ -62,6 +68,7 @@ const Hero = () => {
             </h2>
           </div>
 
+          {/* Bio */}
           <div className="mb-10 animate-fade-in">
             <p className="text-lg md:text-xl text-foreground/90 max-w-3xl mx-auto leading-relaxed">
               Passionate about learning, exploring, and coding. I enjoy building
@@ -71,6 +78,7 @@ const Hero = () => {
             </p>
           </div>
 
+          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in">
             <Button
               size="lg"
@@ -94,6 +102,7 @@ const Hero = () => {
         </div>
       </div>
 
+      {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce pointer-events-none">
         <div className="w-6 h-10 border-2 border-primary/30 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-primary rounded-full mt-2 animate-pulse" />
